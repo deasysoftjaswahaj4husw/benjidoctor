@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "631815002998",
+    "project_id": "benjiprovider",
+    "storage_bucket": "benjiprovider.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631815002998:android:9d6ab80a98477739257857",
+        "android_client_info": {
+          "package_name": "com.example.benjidoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "631815002998-709ug7uak60cmnc6j5l7bpe19n8kap4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.benjidoctor",
+            "certificate_hash": "04d801d6cde610ab90f88c81ff7aa200b8942207"
+          }
+        },
+        {
+          "client_id": "631815002998-8u0uiljcro5qga0j1ss2p12s1viiek9t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf0xyBXHup6QMeByU5encisHafOl71fIQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "631815002998-8u0uiljcro5qga0j1ss2p12s1viiek9t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
