@@ -1,4 +1,3 @@
-import 'package:benjidoctor/screens/UpdatePracticeScreen2.dart';
 import 'package:benjidoctor/screens/clients.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -6,12 +5,12 @@ import 'dart:convert';
 
 import 'package:benjidoctor/resources/globals/strings.dart' as global_strings;
 import 'package:benjidoctor/resources/globals/constants.dart'
-    as global_constants;
+as global_constants;
 
 import 'package:benjidoctor/resources/update_practice/strings.dart'
-    as local_strings;
+as local_strings;
 import 'package:benjidoctor/resources/update_practice/constants.dart'
-    as local_constants;
+as local_constants;
 
 abstract class DAYS {
   static const mon = 'mon';
@@ -22,15 +21,14 @@ abstract class DAYS {
   static const sat = 'sat';
   static const sun = 'sun';
 }
-
-class UpdatePracticeScreen extends StatefulWidget {
-  const UpdatePracticeScreen({Key? key}) : super(key: key);
+class UpdatePracticeScreen2 extends StatefulWidget {
+  const UpdatePracticeScreen2({Key? key}) : super(key: key);
 
   @override
-  _UpdatePracticeScreenState createState() => _UpdatePracticeScreenState();
+  _UpdatePracticeScreen2State createState() => _UpdatePracticeScreen2State();
 }
 
-class _UpdatePracticeScreenState extends State<UpdatePracticeScreen> {
+class _UpdatePracticeScreen2State extends State<UpdatePracticeScreen2> {
   final updatePracticeFormKey = GlobalKey<FormState>();
 
   bool mon = false;
@@ -222,7 +220,7 @@ class _UpdatePracticeScreenState extends State<UpdatePracticeScreen> {
       });
 
       http.Response response =
-          await http.post(Uri.parse(url), headers: headers, body: data);
+      await http.post(Uri.parse(url), headers: headers, body: data);
 
       setState(() {
         showLoader = false;
@@ -648,7 +646,7 @@ class _UpdatePracticeScreenState extends State<UpdatePracticeScreen> {
           children: [
             TextFormField(
               decoration:
-                  local_constants.TEXTFORMFIELD_STYLES.name_of_workplace,
+              local_constants.TEXTFORMFIELD_STYLES.name_of_workplace,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Name of Workplace is required';
@@ -723,7 +721,7 @@ class _UpdatePracticeScreenState extends State<UpdatePracticeScreen> {
                 padding: global_constants.PADDING.p2,
                 decoration: BoxDecoration(
                   border:
-                      Border.all(color: global_constants.BORDER_COLOR.primary),
+                  Border.all(color: global_constants.BORDER_COLOR.primary),
                 ),
                 child: Image.asset(global_constants.IMAGE.add),
               ),
@@ -740,7 +738,7 @@ class _UpdatePracticeScreenState extends State<UpdatePracticeScreen> {
             Navigator.push(context, MaterialPageRoute(builder: (context)=>UpdatePracticeScreen2()),
             );
           }
-          );
+      );
     }
 
     return SafeArea(
@@ -750,64 +748,64 @@ class _UpdatePracticeScreenState extends State<UpdatePracticeScreen> {
             padding: global_constants.PADDING.p4,
             child: !showLoader
                 ? Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const SizedBox(height: 40.0),
-                        progress(device_width),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              children: [
-                                const SizedBox(height: 40.0),
-                                const SizedBox(height: 80.0),
-                                const Text(local_strings.HEADINGS.heading,
-                                    style: local_constants.TEXT_STYLES.heading),
-                                const SizedBox(height: 40.0),
-                                SizedBox(
-                                  width: device_width > 800
-                                      ? device_width * 0.4
-                                      : device_width * 0.8,
-                                  child: updateProfileForm,
-                                ),
-                                addWorkPlace(),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 40.0,
-                        ),
-                        GestureDetector(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              const Text(
-                                local_strings.LINKS.next,
-                                style: local_constants.LINK_STYLES.next,
-                              ),
-                              Image.asset(global_constants.IMAGE.arrow_right)
-                            ],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const SizedBox(height: 40.0),
+                  progress(device_width),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          const SizedBox(height: 40.0),
+                          const SizedBox(height: 80.0),
+                          const Text(local_strings.HEADINGS.heading,
+                              style: local_constants.TEXT_STYLES.heading),
+                          const SizedBox(height: 40.0),
+                          SizedBox(
+                            width: device_width > 800
+                                ? device_width * 0.4
+                                : device_width * 0.8,
+                            child: updateProfileForm,
                           ),
-                          onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>ClientsScreen()),
-                            );
-
-                          },
+                          addWorkPlace(),
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 40.0,
+                  ),
+                  GestureDetector(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const Text(
+                          local_strings.LINKS.next,
+                          style: local_constants.LINK_STYLES.next,
                         ),
-                        const SizedBox(
-                          height: 40.0,
-                        ),
+                        Image.asset(global_constants.IMAGE.arrow_right)
                       ],
                     ),
-                  )
-                : SizedBox(
-                    height: device_height / 1.3,
-                    child: const Center(
-                      child: CircularProgressIndicator(),
-                    ),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ClientsScreen()),
+                      );
+
+                    },
                   ),
+                  const SizedBox(
+                    height: 40.0,
+                  ),
+                ],
+              ),
+            )
+                : SizedBox(
+              height: device_height / 1.3,
+              child: const Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
           ),
         ),
       ),

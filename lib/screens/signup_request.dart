@@ -29,6 +29,8 @@ class _SignUpRequestScreenState extends State<SignUpRequestScreen> {
 
   FirebaseAuth authInstance = FirebaseAuth.instance;
 
+
+
   signUpRequestForm() {
     return Padding(
       padding: global_constants.PADDING.p1,
@@ -102,8 +104,13 @@ class _SignUpRequestScreenState extends State<SignUpRequestScreen> {
       showLoader = true;
     });
 
-    String url = 'https://benji-backend.herokuapp.com/api/users/get/' +
+    String url = 'https://104.248.233.75/api/auth/signup' +
         phoneNumberFieldController.text;
+
+    var phonenumberFieldController;
+    String data = jsonEncode({
+      'phone': phonenumberFieldController.text
+    });
 
     Map<String, String> headers = {
       "Content-type": "application/json",
@@ -111,7 +118,7 @@ class _SignUpRequestScreenState extends State<SignUpRequestScreen> {
       "Authorization": "Bearer ",
     };
 
-    http.Response response = await http.get(Uri.parse(url), headers: headers);
+    http.Response response = await http.post(Uri.parse(url), headers: headers, body: data,);
 
     setState(() {
       showLoader = false;

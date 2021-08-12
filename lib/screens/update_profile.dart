@@ -180,7 +180,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
       //TODO:_____________ Refactor into services
 
       String url =
-          'https://benji-backend.herokuapp.com/api/users/update-profile';
+          'https://104.248.233.75/api/auth/update-profile';
 
       Map<String, String> headers = {
         "Content-type": "application/json",
